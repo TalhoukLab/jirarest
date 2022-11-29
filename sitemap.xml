@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/404.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/index.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/add_comment.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/attach_file.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/authenticate_jira.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/create_issue.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/index.html</loc>
+  </url>
+</urlset>
