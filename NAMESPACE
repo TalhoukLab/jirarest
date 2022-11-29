@@ -2,4 +2,5 @@
 
 export(add_comment)
 export(attach_file)
+export(authenticate_jira)
 export(create_issue)
