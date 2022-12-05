@@ -4,10 +4,13 @@
 \alias{add_comment}
 \title{Add a comment}
 \usage{
-add_comment(comment)
+add_comment(comment, issue = NULL)
 }
 \arguments{
 \item{comment}{text of comment. Markdown elements are supported.}
+
+\item{issue}{the issue key. Defaults to the project directory base name,
+assuming the R project is named after the issue.}
 }
 \description{
 Add a comment to a jira ticket

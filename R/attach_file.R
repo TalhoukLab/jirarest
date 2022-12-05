@@ -4,9 +4,10 @@
 #'
 #' @param x path to file to attach
 #' @param add_date if `TRUE`, appends today's date to the attached file name
+#' @inheritParams add_comment
 #' @author Derek Chiu
 #' @export
-attach_file <- function(x, add_date = FALSE) {
+attach_file <- function(x, issue = NULL, add_date = FALSE) {
   # Add today's date to file name by copying output to temporary directory
   if (add_date) {
     base_name <- basename(x)
@@ -27,8 +28,8 @@ attach_file <- function(x, add_date = FALSE) {
   }
 
   # POST output as file attachment to jira ticket
-  issuekey <- basename(here::here())
-  attach_response <- httr::POST(
+  issuekey <- issue %||% basename(here::here())
+  res <- httr::POST(
     url = paste(BASE_URL, issuekey, "attachments", sep = "/"),
     config = httr::authenticate(
       user = keyring::key_list(service = "jira")[["username"]],

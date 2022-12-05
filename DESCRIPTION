@@ -10,7 +10,8 @@ License: MIT + file LICENSE
 Imports: 
     here,
     httr,
-    keyring
+    keyring,
+    rlang
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.2

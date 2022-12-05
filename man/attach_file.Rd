@@ -4,10 +4,13 @@
 \alias{attach_file}
 \title{Attach a file}
 \usage{
-attach_file(x, add_date = FALSE)
+attach_file(x, issue = NULL, add_date = FALSE)
 }
 \arguments{
 \item{x}{path to file to attach}
+
+\item{issue}{the issue key. Defaults to the project directory base name,
+assuming the R project is named after the issue.}
 
 \item{add_date}{if \code{TRUE}, appends today's date to the attached file name}
 }
