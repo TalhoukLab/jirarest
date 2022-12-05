@@ -19,6 +19,9 @@
     <loc>https://talhouklab.github.io/jirarest/reference/add_comment.html</loc>
   </url>
   <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/assign_issue.html</loc>
+  </url>
+  <url>
     <loc>https://talhouklab.github.io/jirarest/reference/attach_file.html</loc>
   </url>
   <url>
@@ -28,6 +31,15 @@
     <loc>https://talhouklab.github.io/jirarest/reference/create_issue.html</loc>
   </url>
   <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/get_comment.html</loc>
+  </url>
+  <url>
     <loc>https://talhouklab.github.io/jirarest/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/jirarest-package.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/update_comment.html</loc>
   </url>
 </urlset>
