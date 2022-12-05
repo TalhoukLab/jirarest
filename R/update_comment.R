@@ -1,16 +1,15 @@
-#' Add a comment
+#' Updates a comment
 #'
-#' Add a comment to a jira ticket
+#' Updates a comment on a jira ticket
 #'
-#' @param comment text of comment. Markdown elements are supported.
-#' @param issue the issue key. Defaults to the project directory base name,
-#'   assuming the R project is named after the issue key.
+#' @inheritParams get_comment
+#' @inheritParams add_comment
 #' @author Derek Chiu
 #' @export
-add_comment <- function(comment, issue = NULL) {
+update_comment <- function(comment, id, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
-  res <- httr::POST(
-    url = paste(BASE_URL, issuekey, "comment", sep = "/"),
+  res <- httr::PUT(
+    url = paste(BASE_URL, issuekey, "comment", id, sep = "/"),
     config = httr::authenticate(
       user = keyring::key_list(service = "jira")[["username"]],
       password = keyring::key_get(service = "jira")
@@ -22,9 +21,11 @@ add_comment <- function(comment, issue = NULL) {
   if (httr::http_error(res)) {
     httr::stop_for_status(res)
   } else {
-    paste0("New comment added for Issue ",
+    paste0("Comment ID ",
+           id,
+           " of Issue ",
            issuekey,
-           ": ",
+           " updated with text: ",
            httr::content(res)[["body"]])
   }
 }
