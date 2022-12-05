@@ -43,4 +43,5 @@ attach_file <- function(x, issue = NULL, add_date = FALSE) {
   if (add_date) {
     unlink(x_temp)
   }
+  return(res)
 }
