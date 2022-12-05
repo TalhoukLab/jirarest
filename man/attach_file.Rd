@@ -10,7 +10,7 @@ attach_file(x, issue = NULL, add_date = FALSE)
 \item{x}{path to file to attach}
 
 \item{issue}{the issue key. Defaults to the project directory base name,
-assuming the R project is named after the issue.}
+assuming the R project is named after the issue key.}
 
 \item{add_date}{if \code{TRUE}, appends today's date to the attached file name}
 }

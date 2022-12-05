@@ -4,7 +4,7 @@
 #'
 #' @param comment text of comment. Markdown elements are supported.
 #' @param issue the issue key. Defaults to the project directory base name,
-#'   assuming the R project is named after the issue.
+#'   assuming the R project is named after the issue key.
 #' @author Derek Chiu
 #' @export
 add_comment <- function(comment, issue = NULL) {
