@@ -9,5 +9,5 @@
 #' @author Derek Chiu
 #' @export
 authenticate_jira <- function(username) {
-  keyring::key_set("jira", username = username, keyring = "login")
+  keyring::key_set("jira", username = username)
 }
