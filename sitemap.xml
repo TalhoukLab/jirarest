@@ -25,9 +25,6 @@
     <loc>https://talhouklab.github.io/jirarest/reference/attach_file.html</loc>
   </url>
   <url>
-    <loc>https://talhouklab.github.io/jirarest/reference/authenticate_jira.html</loc>
-  </url>
-  <url>
     <loc>https://talhouklab.github.io/jirarest/reference/create_issue.html</loc>
   </url>
   <url>
@@ -38,6 +35,9 @@
   </url>
   <url>
     <loc>https://talhouklab.github.io/jirarest/reference/jirarest-package.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/store_auth.html</loc>
   </url>
   <url>
     <loc>https://talhouklab.github.io/jirarest/reference/update_comment.html</loc>
