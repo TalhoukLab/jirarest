@@ -31,10 +31,7 @@ attach_file <- function(x, issue = NULL, add_date = FALSE) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::POST(
     url = paste(BASE_URL, issuekey, "attachments", sep = "/"),
-    config = httr::authenticate(
-      user = keyring::key_list(service = "jira")[["username"]],
-      password = keyring::key_get(service = "jira")
-    ),
+    config = set_auth("jira"),
     body = list(file = file),
     httr::add_headers("X-Atlassian-Token" = "no-check")
   )

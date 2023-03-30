@@ -11,10 +11,7 @@ add_comment <- function(comment, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::POST(
     url = paste(BASE_URL, issuekey, "comment", sep = "/"),
-    config = httr::authenticate(
-      user = keyring::key_list(service = "jira")[["username"]],
-      password = keyring::key_get(service = "jira")
-    ),
+    config = set_auth("jira"),
     body = list(body = comment),
     encode = "json",
     httr::add_headers("X-Atlassian-Token" = "no-check")

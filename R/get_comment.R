@@ -11,10 +11,7 @@ get_comment <- function(id, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::GET(
     url = paste(BASE_URL, issuekey, "comment", id, sep = "/"),
-    config = httr::authenticate(
-      user = keyring::key_list(service = "jira")[["username"]],
-      password = keyring::key_get(service = "jira")
-    ),
+    config = set_auth("jira"),
     encode = "json",
     httr::add_headers("X-Atlassian-Token" = "no-check")
   )
