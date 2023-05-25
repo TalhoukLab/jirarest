@@ -1,6 +1,6 @@
 Package: jirarest
 Title: Accessing the Jira REST API
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: 
     person("Derek", "Chiu", , "dchiu@bccrc.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7591-4881"))
