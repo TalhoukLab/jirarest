@@ -1,3 +1,3 @@
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("Please run `authenticate_jira(username)` to ensure Jira credentials are stored.")
+  packageStartupMessage("Please run `store_auth(username)` to ensure Jira credentials are stored.")
 }

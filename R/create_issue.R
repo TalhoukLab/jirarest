@@ -11,10 +11,7 @@
 create_issue <- function(project, summary, description, issuetype = "Task") {
   res <- httr::POST(
     url = BASE_URL,
-    config = httr::authenticate(
-      user = keyring::key_list(service = "jira")[["username"]],
-      password = keyring::key_get(service = "jira")
-    ),
+    config = set_auth("jira"),
     body = list(fields = list(
       project = list(
         key = project
