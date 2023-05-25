@@ -32,7 +32,8 @@ update_labels <- function(labels_add = NULL, labels_remove = NULL, issue = NULL)
       "\nLabels added:",
       stringr::str_flatten_comma(labels_add, last = " and "),
       "\nLabels removed:",
-      stringr::str_flatten_comma(labels_remove, last = " and ")
+      stringr::str_flatten_comma(labels_remove, last = " and "),
+      "\n"
     )
   }
 }
