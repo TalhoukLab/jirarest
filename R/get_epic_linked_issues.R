@@ -14,6 +14,7 @@ get_epic_linked_issues <- function(issue = NULL) {
     httr::add_headers("X-Atlassian-Token" = "no-check")
   )
   cont <- httr::content(res)
-  linked_issues <- sort(purrr::map_chr(cont[["issues"]], "key"))
+  linked_issues <-
+    sort(vapply(cont[["issues"]], function(x) x[["key"]], character(1)))
   linked_issues
 }
