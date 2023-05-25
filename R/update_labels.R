@@ -14,7 +14,7 @@ update_labels <- function(labels_add = NULL, labels_remove = NULL, issue = NULL)
     remove = c(rep(NA, length(labels_add)), labels_remove)
   )))
   res <- httr::PUT(
-    url = paste(BASE_URL, issuekey, sep = "/"),
+    url = paste(BASE_URL, "issue", issuekey, sep = "/"),
     config = httr::authenticate(
       user = keyring::key_list(service = "jira")[["username"]],
       password = keyring::key_get(service = "jira")

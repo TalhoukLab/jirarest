@@ -9,7 +9,7 @@
 assign_issue <- function(name, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::PUT(
-    url = paste(BASE_URL, issuekey, "assignee", sep = "/"),
+    url = paste(BASE_URL, "issue", issuekey, "assignee", sep = "/"),
     config = set_auth("jira"),
     body = list(name = name),
     encode = "json",

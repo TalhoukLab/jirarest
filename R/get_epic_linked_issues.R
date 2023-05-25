@@ -8,9 +8,7 @@
 get_epic_linked_issues <- function(issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::GET(
-    url = paste0("https://www.bcgsc.ca/jira/rest/api/2/",
-                 "search?jql='Epic Link'=",
-                 issuekey),
+    url = paste0(BASE_URL, "/search?jql='Epic Link'=", issuekey),
     config = set_auth("jira"),
     encode = "json",
     httr::add_headers("X-Atlassian-Token" = "no-check")

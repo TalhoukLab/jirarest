@@ -10,7 +10,7 @@
 #' @export
 create_issue <- function(project, summary, description, issuetype = "Task") {
   res <- httr::POST(
-    url = BASE_URL,
+    url = paste(BASE_URL, "issue", sep = "/"),
     config = set_auth("jira"),
     body = list(fields = list(
       project = list(

@@ -30,7 +30,7 @@ attach_file <- function(x, issue = NULL, add_date = FALSE) {
   # POST output as file attachment to jira ticket
   issuekey <- issue %||% basename(here::here())
   res <- httr::POST(
-    url = paste(BASE_URL, issuekey, "attachments", sep = "/"),
+    url = paste(BASE_URL, "issue", issuekey, "attachments", sep = "/"),
     config = set_auth("jira"),
     body = list(file = file),
     httr::add_headers("X-Atlassian-Token" = "no-check")

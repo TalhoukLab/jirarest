@@ -10,7 +10,7 @@
 get_comment <- function(id, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::GET(
-    url = paste(BASE_URL, issuekey, "comment", id, sep = "/"),
+    url = paste(BASE_URL, "issue", issuekey, "comment", id, sep = "/"),
     config = set_auth("jira"),
     encode = "json",
     httr::add_headers("X-Atlassian-Token" = "no-check")

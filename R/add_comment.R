@@ -10,7 +10,7 @@
 add_comment <- function(comment, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::POST(
-    url = paste(BASE_URL, issuekey, "comment", sep = "/"),
+    url = paste(BASE_URL, "issue", issuekey, "comment", sep = "/"),
     config = set_auth("jira"),
     body = list(body = comment),
     encode = "json",

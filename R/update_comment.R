@@ -9,7 +9,7 @@
 update_comment <- function(comment, id, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   res <- httr::PUT(
-    url = paste(BASE_URL, issuekey, "comment", id, sep = "/"),
+    url = paste(BASE_URL, "issue", issuekey, "comment", id, sep = "/"),
     config = set_auth("jira"),
     body = list(body = comment),
     encode = "json",
