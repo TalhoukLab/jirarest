@@ -9,15 +9,12 @@
 #' @export
 get_comment <- function(id, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
-  res <- httr::GET(
-    url = paste(BASE_URL, "issue", issuekey, "comment", id, sep = "/"),
-    config = set_auth("jira"),
-    encode = "json",
-    httr::add_headers("X-Atlassian-Token" = "no-check")
-  )
-  if (httr::http_error(res)) {
-    httr::stop_for_status(res)
-  } else {
-    httr::content(res)[["body"]]
-  }
+  req <-
+    httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "comment", id, sep = "/")) %>%
+    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::exec(httr2::req_auth_basic, !!!.)
+  resp <- req %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_json()
+  resp[["body"]]
 }
