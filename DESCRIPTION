@@ -10,7 +10,9 @@ License: MIT + file LICENSE
 Imports: 
     here,
     httr,
+    httr2,
     keyring,
+    magrittr,
     rlang,
     stringr
 Encoding: UTF-8
