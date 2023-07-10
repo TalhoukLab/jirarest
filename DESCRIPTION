@@ -8,6 +8,7 @@ Description: Access the Jira REST API hosted on the BCGSC. Allows
     authenticated users to attach files and add comments.
 License: MIT + file LICENSE
 Imports: 
+    cli,
     here,
     httr,
     httr2,
