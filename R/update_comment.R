@@ -8,21 +8,14 @@
 #' @export
 update_comment <- function(comment, id, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
-  res <- httr::PUT(
-    url = paste(BASE_URL, "issue", issuekey, "comment", id, sep = "/"),
-    config = set_auth("jira"),
-    body = list(body = comment),
-    encode = "json",
-    httr::add_headers("X-Atlassian-Token" = "no-check")
-  )
-  if (httr::http_error(res)) {
-    httr::stop_for_status(res)
-  } else {
-    paste0("Comment ID ",
-           id,
-           " of Issue ",
-           issuekey,
-           " updated with text: ",
-           httr::content(res)[["body"]])
-  }
+  req <-
+    httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "comment", id, sep = "/")) %>%
+    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::exec(httr2::req_auth_basic, !!!.) %>%
+    httr2::req_body_json(list(body = comment)) %>%
+    httr2::req_method("PUT")
+  resp <- req %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_json()
+  cli::cli_alert_info("Comment ID {.emph {id}} of Issue {issuekey} updated: {.val {resp[['body']]}}")
 }
