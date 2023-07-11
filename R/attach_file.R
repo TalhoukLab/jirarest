@@ -22,23 +22,27 @@ attach_file <- function(x, issue = NULL, add_date = FALSE) {
       )
     )
     file.copy(x, x_temp)
-    file <- httr::upload_file(x_temp)
+    file <- curl::form_file(x_temp)
   } else {
-    file <- httr::upload_file(x)
+    file <- curl::form_file(x)
   }
 
   # POST output as file attachment to jira ticket
   issuekey <- issue %||% basename(here::here())
-  res <- httr::POST(
-    url = paste(BASE_URL, "issue", issuekey, "attachments", sep = "/"),
-    config = set_auth("jira"),
-    body = list(file = file),
-    httr::add_headers("X-Atlassian-Token" = "no-check")
-  )
+  req <-
+    httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "attachments", sep = "/")) %>%
+    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::exec(httr2::req_auth_basic, !!!.) %>%
+    httr2::req_body_multipart(file = file) %>%
+    httr2::req_headers(`X-Atlassian-Token` = "no-check")
+  resp <- req %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_json()
 
   # Remove temp file
   if (add_date) {
     unlink(x_temp)
   }
+  cli::cli_alert_info("Attached file {.file {x}} to Issue {issuekey}")
   return(res)
 }
