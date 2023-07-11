@@ -10,6 +10,7 @@ License: MIT + file LICENSE
 Imports: 
     cli,
     curl,
+    dplyr,
     here,
     httr2,
     keyring,
