@@ -44,5 +44,5 @@ attach_file <- function(x, issue = NULL, add_date = FALSE) {
     unlink(x_temp)
   }
   cli::cli_alert_info("Attached file {.file {x}} to Issue {issuekey}")
-  return(res)
+  return(resp)
 }
