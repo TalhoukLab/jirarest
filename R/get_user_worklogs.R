@@ -29,12 +29,21 @@ get_user_worklogs <- function(user, project = "BC", from = NULL, to = NULL) {
   resp <- req %>%
     httr2::req_perform() %>%
     httr2::resp_body_json()
-  resp %>%
-    purrr::pluck("issues") %>%
-    purrr::map(~ {
-      list(Issue = .[["key"]],
-           Time = .[["fields"]][["timespent"]])
-    }) %>%
-    dplyr::bind_rows() %>%
-    dplyr::mutate(Time = lubridate::duration(.data$Time))
+
+  if (length(resp[["issues"]]) == 0) {
+    resp %>%
+      purrr::pluck("warningMessages") %>%
+      purrr::map_chr(~ gsub("value '(.*)'( does.*)", "value {.val \\1}\\2", .)) %>%
+      purrr::map_chr(~ gsub("field '(.*)'(\\.)", "field {.field \\1}\\2", .)) %>%
+      purrr::walk(cli::cli_alert_warning)
+  } else {
+    resp %>%
+      purrr::pluck("issues") %>%
+      purrr::map(~ {
+        list(Issue = .[["key"]],
+             Time = .[["fields"]][["timespent"]])
+      }) %>%
+      dplyr::bind_rows() %>%
+      dplyr::mutate(Time = lubridate::duration(.data$Time))
+  }
 }
