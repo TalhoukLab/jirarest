@@ -15,7 +15,7 @@ update_labels <- function(labels_add = NULL, labels_remove = NULL, issue = NULL)
   )))
   req <-
     httr2::request(base_url = paste(BASE_URL, "issue", issuekey, sep = "/")) %>%
-    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::list2(!!!set_auth("jira")) %>%
     rlang::exec(httr2::req_auth_basic, !!!.) %>%
     httr2::req_body_json(body) %>%
     httr2::req_method("PUT")

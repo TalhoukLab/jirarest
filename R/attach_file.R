@@ -31,7 +31,7 @@ attach_file <- function(x, issue = NULL, add_date = FALSE) {
   issuekey <- issue %||% basename(here::here())
   req <-
     httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "attachments", sep = "/")) %>%
-    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::list2(!!!set_auth("jira")) %>%
     rlang::exec(httr2::req_auth_basic, !!!.) %>%
     httr2::req_body_multipart(file = file) %>%
     httr2::req_headers(`X-Atlassian-Token` = "no-check")

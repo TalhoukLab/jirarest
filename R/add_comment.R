@@ -11,7 +11,7 @@ add_comment <- function(comment, issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   req <-
     httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "comment", sep = "/")) %>%
-    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::list2(!!!set_auth("jira")) %>%
     rlang::exec(httr2::req_auth_basic, !!!.) %>%
     httr2::req_body_json(list(body = comment))
   resp <- req %>%

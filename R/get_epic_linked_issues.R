@@ -10,7 +10,7 @@ get_epic_linked_issues <- function(issue = NULL) {
   req <- httr2::request(BASE_URL) %>%
     httr2::req_url_path_append("search") %>%
     httr2::req_url_query(jql = paste0("'Epic Link'=", issuekey)) %>%
-    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::list2(!!!set_auth("jira")) %>%
     rlang::exec(httr2::req_auth_basic, !!!.)
   resp <- req %>%
     httr2::req_perform() %>%

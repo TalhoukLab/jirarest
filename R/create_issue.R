@@ -11,7 +11,7 @@
 create_issue <- function(project, summary, description, issuetype = "Task") {
   req <-
     httr2::request(base_url = paste(BASE_URL, "issue", sep = "/")) %>%
-    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::list2(!!!set_auth("jira")) %>%
     rlang::exec(httr2::req_auth_basic, !!!.) %>%
     httr2::req_body_json(list(
       fields = list(
