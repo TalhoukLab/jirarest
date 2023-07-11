@@ -13,27 +13,15 @@ update_labels <- function(labels_add = NULL, labels_remove = NULL, issue = NULL)
     add = c(labels_add, rep(NA,  length(labels_remove))),
     remove = c(rep(NA, length(labels_add)), labels_remove)
   )))
-  res <- httr::PUT(
-    url = paste(BASE_URL, "issue", issuekey, sep = "/"),
-    config = httr::authenticate(
-      user = keyring::key_list(service = "jira")[["username"]],
-      password = keyring::key_get(service = "jira")
-    ),
-    body = body,
-    encode = "json",
-    httr::add_headers("X-Atlassian-Token" = "no-check")
-  )
-  if (httr::http_error(res)) {
-    httr::stop_for_status(res)
-  } else {
-    cat(
-      "Issue",
-      issuekey,
-      "\nLabels added:",
-      stringr::str_flatten_comma(labels_add, last = " and "),
-      "\nLabels removed:",
-      stringr::str_flatten_comma(labels_remove, last = " and "),
-      "\n"
-    )
-  }
+  req <-
+    httr2::request(base_url = paste(BASE_URL, "issue", issuekey, sep = "/")) %>%
+    rlang::list2(!!!set_auth2("jira")) %>%
+    rlang::exec(httr2::req_auth_basic, !!!.) %>%
+    httr2::req_body_json(body) %>%
+    httr2::req_method("PUT")
+  resp <- req %>%
+    httr2::req_perform()
+  cli::cli_rule("Issue {issuekey}")
+  cli::cli_alert_info("{.dt Labels added}{.dd {labels_add}}")
+  cli::cli_alert_info("{.dt Labels removed}{.dd {labels_remove}}")
 }
