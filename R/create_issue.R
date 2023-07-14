@@ -9,21 +9,20 @@
 #' @author Derek Chiu
 #' @export
 create_issue <- function(project, summary, description, issuetype = "Task") {
-  res <- httr::POST(
-    url = paste(BASE_URL, "issue", sep = "/"),
-    config = set_auth("jira"),
-    body = list(fields = list(
-      project = list(
-        key = project
-      ),
-      summary = summary,
-      description = description,
-      issuetype = list(
-        name = issuetype
+  req <-
+    httr2::request(base_url = paste(BASE_URL, "issue", sep = "/")) %>%
+    rlang::list2(!!!set_auth("jira")) %>%
+    rlang::exec(httr2::req_auth_basic, !!!.) %>%
+    httr2::req_body_json(list(
+      fields = list(
+        project = list(key = project),
+        summary = summary,
+        description = description,
+        issuetype = list(name = issuetype)
       )
-    )),
-    encode = "json",
-    httr::add_headers("X-Atlassian-Token" = "no-check",
-                      "Content-Type" = "application/json")
-  )
+    ))
+  resp <- req %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_json()
+  cli::cli_alert_info("Issue {resp[['key']]} created")
 }

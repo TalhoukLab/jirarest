@@ -7,7 +7,7 @@
 assign_issue(name, issue = NULL)
 }
 \arguments{
-\item{name}{username to assign}
+\item{name}{username to assign. Set to \code{NULL} to unassign the issue.}
 
 \item{issue}{the issue key. Defaults to the project directory base name,
 assuming the R project is named after the issue key.}

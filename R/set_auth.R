@@ -12,9 +12,6 @@ set_auth <- function(service = "jira") {
     )
   }
   username <- key[["username"]]
-  config <- httr::authenticate(
-    user = username,
-    password = keyring::key_get(service = service, username = username)
-  )
-  invisible(config)
+  password <- keyring::key_get(service = service, username = username)
+  invisible(list(username = username, password = password))
 }
