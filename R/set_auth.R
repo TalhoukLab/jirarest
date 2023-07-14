@@ -7,7 +7,7 @@ set_auth <- function(service = "jira") {
       paste0(
         "JIRA credentials not stored in service ",
         dQuote(service),
-        ". Run `authenticate_jira(username)`."
+        ". Run `store_auth(username)`."
       )
     )
   }
