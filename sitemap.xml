@@ -34,10 +34,19 @@
     <loc>https://talhouklab.github.io/jirarest/reference/get_epic_linked_issues.html</loc>
   </url>
   <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/get_issue_worklogs.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/get_label_worklogs.html</loc>
+  </url>
+  <url>
     <loc>https://talhouklab.github.io/jirarest/reference/index.html</loc>
   </url>
   <url>
     <loc>https://talhouklab.github.io/jirarest/reference/jirarest-package.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/pipe.html</loc>
   </url>
   <url>
     <loc>https://talhouklab.github.io/jirarest/reference/store_auth.html</loc>
