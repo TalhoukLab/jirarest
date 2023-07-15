@@ -4,6 +4,8 @@
 # jirarest
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/TalhoukLab/jirarest/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/TalhoukLab/jirarest/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of jirarest is to provide a REST API in R for accessing the
