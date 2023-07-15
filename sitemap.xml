@@ -34,6 +34,9 @@
     <loc>https://talhouklab.github.io/jirarest/reference/get_epic_linked_issues.html</loc>
   </url>
   <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/get_issue_transitions.html</loc>
+  </url>
+  <url>
     <loc>https://talhouklab.github.io/jirarest/reference/get_issue_worklogs.html</loc>
   </url>
   <url>
@@ -50,6 +53,9 @@
   </url>
   <url>
     <loc>https://talhouklab.github.io/jirarest/reference/store_auth.html</loc>
+  </url>
+  <url>
+    <loc>https://talhouklab.github.io/jirarest/reference/transition_issue.html</loc>
   </url>
   <url>
     <loc>https://talhouklab.github.io/jirarest/reference/update_comment.html</loc>
