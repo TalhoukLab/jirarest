@@ -4,13 +4,16 @@
 \alias{get_comment}
 \title{Returns a comment}
 \usage{
-get_comment(id, issue = NULL)
+get_comment(id, issue = NULL, escape = FALSE)
 }
 \arguments{
 \item{id}{the ID of the comment}
 
 \item{issue}{the issue key. Defaults to the project directory base name,
 assuming the R project is named after the issue key.}
+
+\item{escape}{if \code{TRUE}, line returns are escaped for improved formatting of
+comments}
 }
 \description{
 Return a single comment of a jira ticket

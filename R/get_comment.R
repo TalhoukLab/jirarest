@@ -3,11 +3,10 @@
 #' Return a single comment of a jira ticket
 #'
 #' @param id the ID of the comment
-#' @param issue the issue key. Defaults to the project directory base name,
-#'   assuming the R project is named after the issue key.
+#' @inheritParams get_comments
 #' @author Derek Chiu
 #' @export
-get_comment <- function(id, issue = NULL) {
+get_comment <- function(id, issue = NULL, escape = FALSE) {
   issuekey <- issue %||% basename(here::here())
   req <-
     httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "comment", id, sep = "/")) %>%

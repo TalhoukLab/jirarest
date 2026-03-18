@@ -4,11 +4,14 @@
 \alias{get_comments}
 \title{Returns a comment}
 \usage{
-get_comments(issue = NULL)
+get_comments(issue = NULL, escape = FALSE)
 }
 \arguments{
 \item{issue}{the issue key. Defaults to the project directory base name,
 assuming the R project is named after the issue key.}
+
+\item{escape}{if \code{TRUE}, line returns are escaped for improved formatting of
+comments}
 }
 \description{
 Return all comments for an issue
