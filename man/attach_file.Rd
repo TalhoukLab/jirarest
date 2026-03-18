@@ -4,7 +4,7 @@
 \alias{attach_file}
 \title{Attach a file}
 \usage{
-attach_file(x, issue = NULL, add_date = FALSE)
+attach_file(x, issue = NULL, add_date = FALSE, comment = TRUE)
 }
 \arguments{
 \item{x}{path to file to attach}
@@ -13,6 +13,9 @@ attach_file(x, issue = NULL, add_date = FALSE)
 assuming the R project is named after the issue key.}
 
 \item{add_date}{if \code{TRUE}, appends today's date to the attached file name}
+
+\item{comment}{if \code{TRUE} (default), add a comment to the issue detailing
+full name of attached file}
 }
 \description{
 Attach a file to a jira ticket

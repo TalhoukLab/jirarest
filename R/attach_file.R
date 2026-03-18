@@ -4,10 +4,12 @@
 #'
 #' @param x path to file to attach
 #' @param add_date if `TRUE`, appends today's date to the attached file name
+#' @param comment if `TRUE` (default), add a comment to the issue detailing
+#'  full name of attached file
 #' @inheritParams add_comment
 #' @author Derek Chiu
 #' @export
-attach_file <- function(x, issue = NULL, add_date = FALSE) {
+attach_file <- function(x, issue = NULL, add_date = FALSE, comment = TRUE) {
   # Add today's date to file name by copying output to temporary directory
   if (add_date) {
     base_name <- basename(x)
@@ -44,5 +46,12 @@ attach_file <- function(x, issue = NULL, add_date = FALSE) {
     unlink(x_temp)
   }
   cli::cli_alert_info("Attached file {.file {x}} to Issue {issuekey}")
-  return(resp)
+
+  # Add comment to JIRA issue
+  if (comment) {
+    resp |>
+      purrr::pluck(1, "filename") |>
+      paste0("Uploaded report {{", ... = _, "}}") |>
+      add_comment()
+  }
 }
