@@ -17,5 +17,5 @@ add_comment <- function(comment, issue = NULL) {
   resp <- req %>%
     httr2::req_perform() %>%
     httr2::resp_body_json()
-  cli::cli_alert_info("New comment added for Issue {issuekey}: {resp[['body']]}")
+  cli::cli_alert_info("New comment added for Issue {toupper(issuekey)}: {resp[['body']]}")
 }

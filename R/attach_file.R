@@ -45,7 +45,7 @@ attach_file <- function(x, issue = NULL, add_date = FALSE, comment = TRUE) {
   if (add_date) {
     unlink(x_temp)
   }
-  cli::cli_alert_info("Attached file {.file {x}} to Issue {issuekey}")
+  cli::cli_alert_info("Attached file {.file {x}} to Issue {toupper(issuekey)}")
 
   # Add comment to JIRA issue
   if (comment) {
