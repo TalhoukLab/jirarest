@@ -16,9 +16,12 @@ get_label_worklogs <- function(labels, project = "BC", from = NULL, to = NULL,
   from <- from %||% paste0(format(Sys.Date(), "%Y"), "-01-01")
   to <- to %||% Sys.Date()
 
+  labels_str <- labels |>
+    paste(collapse = ", ") |>
+    gsub("/", "\\\\u002f", x = _)
   jql <- paste0(
     "project=", project, "&",
-    "labels in (", paste(labels, collapse = ", "), ")&",
+    "labels in (", labels_str, ")&",
     "created>=", from, "&",
     "created<=", to
   )
@@ -54,6 +57,6 @@ get_label_worklogs <- function(labels, project = "BC", from = NULL, to = NULL,
         )
       }) |>
       dplyr::bind_rows() |>
-      dplyr::mutate(Time = lubridate::duration(.data$Time))
+      dplyr::mutate(Time = lubridate::seconds_to_period(.data$Time))
   }
 }
