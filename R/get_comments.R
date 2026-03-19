@@ -20,7 +20,7 @@ get_comments <- function(issue = NULL, escape = FALSE) {
   results <- resp[["comments"]]
   comments <- purrr::map(results, "body")
   ids <- purrr::map(results, "id")
-  comments <- setNames(comments, ids)
+  comments <- stats::setNames(comments, ids)
 
   if (escape) {
     purrr::iwalk(comments, ~ {
