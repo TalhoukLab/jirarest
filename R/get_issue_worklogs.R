@@ -18,6 +18,6 @@ get_issue_worklogs <- function(issue = NULL) {
     purrr::pluck("worklogs") |>
     purrr::map_int("timeSpentSeconds") |>
     sum() |>
-    lubridate::duration(units = "seconds")
+    lubridate::seconds_to_period()
   cli::cli_alert_info("Time logged for {issuekey}: {dur}")
 }
