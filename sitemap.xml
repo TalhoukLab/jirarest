@@ -7,6 +7,7 @@
 <url><loc>https://talhouklab.github.io/jirarest/reference/add_comment.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/assign_issue.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/attach_file.html</loc></url>
+<url><loc>https://talhouklab.github.io/jirarest/reference/auth_req.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/create_issue.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/delete_comment.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_comment.html</loc></url>
@@ -20,7 +21,6 @@
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_label_worklogs.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/index.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/jirarest-package.html</loc></url>
-<url><loc>https://talhouklab.github.io/jirarest/reference/pipe.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/store_auth.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/transition_issue.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/update_comment.html</loc></url>

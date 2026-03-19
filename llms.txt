@@ -55,6 +55,8 @@ attach_file("/path/to/file")
   : Assigns an issue to a user
 - [`attach_file()`](https://talhouklab.github.io/jirarest/reference/attach_file.md)
   : Attach a file
+- [`auth_req()`](https://talhouklab.github.io/jirarest/reference/auth_req.md)
+  : Create an authenticated request
 - [`create_issue()`](https://talhouklab.github.io/jirarest/reference/create_issue.md)
   : Create an issue
 - [`delete_comment()`](https://talhouklab.github.io/jirarest/reference/delete_comment.md)
