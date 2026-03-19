@@ -8,16 +8,13 @@
 #' @export
 get_issue_transitions <- function(issue = NULL) {
   issuekey <- issue %||% basename(here::here())
-  req <- httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "transitions", sep = "/")) %>%
-    rlang::list2(!!!set_auth("jira")) %>%
-    rlang::exec(httr2::req_auth_basic, !!!.)
-  resp <- req %>%
-    httr2::req_perform() %>%
+  req <-
+    auth_req() |>
+    httr2::req_url_path_append("issue", issuekey, "transitions")
+  resp <- req |>
+    httr2::req_perform() |>
     httr2::resp_body_json()
-  resp[["transitions"]] %>%
-    purrr::map(~ {
-      list(id = .[["id"]],
-           name = .[["name"]])
-    }) %>%
+  resp[["transitions"]] |>
+    purrr::map(~ purrr::keep_at(.x, c("id", "name"))) |>
     dplyr::bind_rows()
 }

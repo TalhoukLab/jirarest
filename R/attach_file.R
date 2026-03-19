@@ -32,13 +32,12 @@ attach_file <- function(x, issue = NULL, add_date = FALSE, comment = TRUE) {
   # POST output as file attachment to jira ticket
   issuekey <- issue %||% basename(here::here())
   req <-
-    httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "attachments", sep = "/")) %>%
-    rlang::list2(!!!set_auth("jira")) %>%
-    rlang::exec(httr2::req_auth_basic, !!!.) %>%
-    httr2::req_body_multipart(file = file) %>%
+    auth_req() |>
+    httr2::req_url_path_append("issue", issuekey, "attachments") |>
+    httr2::req_body_multipart(file = file) |>
     httr2::req_headers(`X-Atlassian-Token` = "no-check")
-  resp <- req %>%
-    httr2::req_perform() %>%
+  resp <- req |>
+    httr2::req_perform() |>
     httr2::resp_body_json()
 
   # Remove temp file

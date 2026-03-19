@@ -9,16 +9,15 @@
 get_issue_worklogs <- function(issue = NULL) {
   issuekey <- issue %||% basename(here::here())
   req <-
-    httr2::request(base_url = paste(BASE_URL, "issue", issuekey, "worklog", sep = "/")) %>%
-    rlang::list2(!!!set_auth("jira")) %>%
-    rlang::exec(httr2::req_auth_basic, !!!.)
-  resp <- req %>%
-    httr2::req_perform() %>%
+    auth_req() |>
+    httr2::req_url_path_append("issue", issuekey, "worklog")
+  resp <- req |>
+    httr2::req_perform() |>
     httr2::resp_body_json()
-  dur <- resp %>%
-    purrr::pluck("worklogs") %>%
-    purrr::map_int("timeSpentSeconds") %>%
-    sum() %>%
+  dur <- resp |>
+    purrr::pluck("worklogs") |>
+    purrr::map_int("timeSpentSeconds") |>
+    sum() |>
     lubridate::duration(units = "seconds")
   cli::cli_alert_info("Time logged for {issuekey}: {dur}")
 }

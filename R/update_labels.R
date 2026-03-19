@@ -14,12 +14,11 @@ update_labels <- function(labels_add = NULL, labels_remove = NULL, issue = NULL)
     remove = c(rep(NA, length(labels_add)), labels_remove)
   )))
   req <-
-    httr2::request(base_url = paste(BASE_URL, "issue", issuekey, sep = "/")) %>%
-    rlang::list2(!!!set_auth("jira")) %>%
-    rlang::exec(httr2::req_auth_basic, !!!.) %>%
-    httr2::req_body_json(body) %>%
+    auth_req() |>
+    httr2::req_url_path_append("issue", issuekey) |>
+    httr2::req_body_json(body) |>
     httr2::req_method("PUT")
-  resp <- req %>%
+  resp <- req |>
     httr2::req_perform()
   cli::cli_rule("Issue {issuekey}")
   cli::cli_alert_info("{.dt Labels added}{.dd {labels_add}}")
