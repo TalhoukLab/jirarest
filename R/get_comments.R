@@ -23,7 +23,7 @@ get_comments <- function(issue = NULL, escape = FALSE) {
 
   if (escape) {
     purrr::iwalk(comments, ~ {
-      cat("Comment ID: ", .y, "\n", .x)
+      cat("Comment ID: ", .y, "\n", .x, "\n")
     })
   } else {
     comments
