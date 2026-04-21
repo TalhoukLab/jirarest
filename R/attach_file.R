@@ -36,6 +36,15 @@ attach_file <- function(x, issue = NULL, add_date = FALSE, comment = TRUE) {
     httr2::req_url_path_append("issue", issuekey, "attachments") |>
     httr2::req_body_multipart(file = file) |>
     httr2::req_headers(`X-Atlassian-Token` = "no-check")
+
+  # Delete attachment with same file name if already exists
+  atts <- get_issue_attachments(issue = issuekey)
+  same_att_id <- names(atts[atts %in% basename(file[["path"]])])
+  if (length(same_att_id) > 0) {
+    delete_attachment(id = same_att_id)
+  }
+
+  # Attach file
   resp <- req |>
     httr2::req_perform() |>
     httr2::resp_body_json()
