@@ -12,6 +12,8 @@
   : Create an authenticated request
 - [`create_issue()`](https://talhouklab.github.io/jirarest/reference/create_issue.md)
   : Create an issue
+- [`delete_attachment()`](https://talhouklab.github.io/jirarest/reference/delete_attachment.md)
+  : Deletes an attachment
 - [`delete_comment()`](https://talhouklab.github.io/jirarest/reference/delete_comment.md)
   : Deletes a comment
 - [`get_comment()`](https://talhouklab.github.io/jirarest/reference/get_comment.md)
@@ -22,6 +24,8 @@
   : Returns linked issues to an Epic
 - [`get_issue_assignee()`](https://talhouklab.github.io/jirarest/reference/get_issue_assignee.md)
   : Returns assignee for an issue
+- [`get_issue_attachments()`](https://talhouklab.github.io/jirarest/reference/get_issue_attachments.md)
+  : Returns all attachments for an issue
 - [`get_issue_dates()`](https://talhouklab.github.io/jirarest/reference/get_issue_dates.md)
   : Returns all date fields for an issue
 - [`get_issue_reporter()`](https://talhouklab.github.io/jirarest/reference/get_issue_reporter.md)

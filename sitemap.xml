@@ -9,11 +9,13 @@
 <url><loc>https://talhouklab.github.io/jirarest/reference/attach_file.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/auth_req.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/create_issue.html</loc></url>
+<url><loc>https://talhouklab.github.io/jirarest/reference/delete_attachment.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/delete_comment.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_comment.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_comments.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_epic_linked_issues.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_issue_assignee.html</loc></url>
+<url><loc>https://talhouklab.github.io/jirarest/reference/get_issue_attachments.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_issue_dates.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_issue_reporter.html</loc></url>
 <url><loc>https://talhouklab.github.io/jirarest/reference/get_issue_transitions.html</loc></url>
