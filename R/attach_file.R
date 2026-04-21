@@ -49,6 +49,7 @@ attach_file <- function(x, issue = NULL, add_date = FALSE, comment = TRUE) {
 
   # Add comment to JIRA issue
   if (comment) {
-    add_comment(paste0("Uploaded report {{", filename, "}}"))
+    add_comment(comment = paste0("Uploaded report {{", filename, "}}"),
+                issue = issuekey)
   }
 }
