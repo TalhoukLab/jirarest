@@ -20,5 +20,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Derek Chiu \email{dchiu@bccrc.ca} (\href{https://orcid.org/0000-0002-7591-4881}{ORCID})
 
+Authors:
+\itemize{
+  \item Derek Chiu \email{dchiu@bccrc.ca} (\href{https://orcid.org/0000-0002-7591-4881}{ORCID})
+}
+
 }
 \keyword{internal}
