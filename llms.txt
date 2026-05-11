@@ -9,6 +9,7 @@ You can install the development version of jirarest from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("TalhoukLab/jirarest")
 ```
@@ -22,6 +23,7 @@ Here are examples of the currently implemented resources.
 An issue can be created within a Jira project.
 
 ``` r
+
 library(jirarest)
 create_issue(project = "BC",
              summary = "new analysis",
@@ -34,6 +36,7 @@ We can add comments to existing issues. Assumes that the current working
 directory is the name of issue.
 
 ``` r
+
 add_comment("report completed")
 ```
 
@@ -42,6 +45,7 @@ add_comment("report completed")
 Files such as PDF reports and data can be attached to issues.
 
 ``` r
+
 attach_file("/path/to/file")
 ```
 

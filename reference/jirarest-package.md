@@ -17,3 +17,8 @@ Useful links:
 
 **Maintainer**: Derek Chiu <dchiu@bccrc.ca>
 ([ORCID](https://orcid.org/0000-0002-7591-4881))
+
+Authors:
+
+- Derek Chiu <dchiu@bccrc.ca>
+  ([ORCID](https://orcid.org/0000-0002-7591-4881))
