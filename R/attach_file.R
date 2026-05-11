@@ -39,9 +39,11 @@ attach_file <- function(x, issue = NULL, add_date = FALSE, comment = TRUE) {
 
   # Delete attachment with same file name if already exists
   atts <- get_issue_attachments(issue = issuekey)
-  same_att_id <- names(atts[atts %in% basename(file[["path"]])])
-  if (length(same_att_id) > 0) {
-    delete_attachment(id = same_att_id)
+  if (length(atts) > 0) {
+    same_att_id <- names(atts[atts %in% basename(file[["path"]])])
+    if (length(same_att_id) > 0) {
+      delete_attachment(id = same_att_id)
+    }
   }
 
   # Attach file

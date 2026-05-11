@@ -14,9 +14,13 @@ get_issue_attachments <- function(issue = NULL) {
   resp <- req |>
     httr2::req_perform() |>
     httr2::resp_body_json()
-  resp[["fields"]] |>
-    purrr::pluck("attachment") |>
-    purrr::map(`[`, c("id", "filename")) |>
-    purrr::transpose() |>
-    tibble::deframe()
+  attachments <- purrr::pluck(resp, "fields", "attachment")
+  if (length(attachments) > 0) {
+    attachments |>
+      purrr::map(`[`, c("id", "filename")) |>
+      purrr::transpose() |>
+      tibble::deframe()
+  } else {
+    attachments
+  }
 }
